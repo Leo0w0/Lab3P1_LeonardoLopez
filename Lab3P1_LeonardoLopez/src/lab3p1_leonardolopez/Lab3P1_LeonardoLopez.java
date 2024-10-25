@@ -35,17 +35,15 @@ public class Lab3P1_LeonardoLopez {
             
            switch (opcion){
                case 1:{
-                   int dividendo = 0;
-                    int divisor = 0;
-
-        
+                int dividendo = 0;
+                int divisor = 0;
                 while (dividendo <= 1) {
                     System.out.print("Ingrese un numero dividendo mayor a 1: ");
                     dividendo = leer.nextInt();
                 if (dividendo <= 1) {
                     System.out.println("Número invalido. Intente de nuevo.");
                 }
-            }
+                }
 
                 while (divisor <= 1) {
                     System.out.print("Ingrese un numero divisor mayor a 1: ");
@@ -54,7 +52,7 @@ public class Lab3P1_LeonardoLopez {
                     System.out.println("Número invalido. Intente de nuevo.");
                 }
                 }
-
+                
     
                 int cociente = 0;
                 int residuo = dividendo;
@@ -62,21 +60,62 @@ public class Lab3P1_LeonardoLopez {
                 while (residuo >= divisor) {
                     residuo -= divisor;
                     cociente++;
+                    
                 }
 
                 System.out.println("El resultado de la division es: " + cociente);
                 System.out.println("El residuo es: " + residuo);
-           }
+                
+
+                }
+            
             case 2:{
-         
+                int opcionJ1 = -1;
+                int opcionJ2 = -1;
+                while (opcionJ1 < 0 || opcionJ1 > 2) {
+                    System.out.println("0. Piedra");
+                    System.out.println("1. Papel");
+                    System.out.println("2. Tijera");
+                    System.out.print("Ingrese su opcion (j1): ");
+                    opcionJ1 = leer.nextInt();
+                    if (opcionJ1 < 0 || opcionJ1 > 2) {
+                        System.out.println("Opcion incorrecta. Intente de nuevo.");
+                    }
+                }
+
+                while (opcionJ2 < 0 || opcionJ2 > 2) {
+                    System.out.println("0. Piedra");
+                    System.out.println("1. Papel");
+                    System.out.println("2. Tijera");
+                    System.out.print("Ingrese su opcion (j2): ");
+                    opcionJ2 = leer.nextInt();
+                        if (opcionJ2 < 0 || opcionJ2 > 2) {
+                            System.out.println("Opcion incorrecta. Intente de nuevo.");
+                        }
+                }
+
+      
+                if (opcionJ1 == opcionJ2) {
+                    System.out.println("Empate.");
+                } else if ((opcionJ1 == 0 && opcionJ2 == 2) || (opcionJ1 == 1 && opcionJ2 == 0) || (opcionJ1 == 2 && opcionJ2 == 1)) {
+                    System.out.println("Jugador 1 gana.");
+                } else {
+                    System.out.println("Jugador 2 gana.");
+                }
+
+
+            }     
                    
-                    
+            case 3:{
+                
+                            
                      
             }
            
+            
        }
        
     }
-    
+    System.out.println("Saliendo del menu principal");
     }
 }
