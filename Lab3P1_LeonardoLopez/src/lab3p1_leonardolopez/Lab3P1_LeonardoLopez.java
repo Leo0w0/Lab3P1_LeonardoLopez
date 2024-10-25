@@ -121,28 +121,54 @@ public class Lab3P1_LeonardoLopez {
             }     
             }       
             case 3:{
-               System.out.print("Ingrese un número entero mayor o igual a 6: ");
-        int base = leer.nextInt();
-        
-        if (base >= 6) {
-            int altura = base - 1;
-            for (int i = 0; i < altura; i++) {
-                for (int j = 0; j < base - i; j++) {
-                    if (j == i) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
+               int base;
+
+                    System.out.print("Introduce un número entero mayor o igual a 6: ");
+                    base = leer.nextInt();
+
+                    while (base < 6) {
+                        System.out.print("Número inválido. Introduce un número entero mayor o igual a 6: ");
+                        base = leer.nextInt();
                     }
-                }
-                System.out.println();
-            }
-        } else {
-            System.out.println("El número debe ser mayor o igual a 6.");
+
+                    int altura = base - 1;
+                    boolean derecha = true;
+
+                    for (int i = 0; i < altura; i++) {
+                        for (int j = 0; j < base; j++) {
+                            if (i % 2 == 0) {
+                                System.out.print("*");
+                            } else {
+                                if (derecha && j == base - 1) {
+                                    System.out.print("*");
+                                } else if (!derecha && j == 0) {
+                                    System.out.print("*");
+                                } else {
+                                    System.out.print(" ");
+                                }
+                            }
+                        }
+                        System.out.println();
+                        if (i % 2 != 0) {
+                            base -= 2; // Eliminar un punto de ambos lados
+                            derecha = !derecha;
+                        }
+                    }
+
+                    // Preguntar al usuario si desea realizar otra operación
+                    System.out.print("¿Desea realizar otra operación? (s/n): ");
+                    continuar = leer.next().charAt(0);
+                    if (continuar == 'n' || continuar == 'N') {
+                        opcion = 0;
+                    } else {
+                        System.out.print("Escoja: ");
+                        opcion = leer.nextInt();
+                    }
+                    break;
             }    
             }
        
         }
     System.out.println("Saliendo del menu principal");
     }
-}
 }
