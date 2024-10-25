@@ -18,6 +18,7 @@ public class Lab3P1_LeonardoLopez {
     public static void main(String[] args) {
        Scanner leer = new Scanner(System.in);
        int opcion = 0;
+       char continuar;
            System.out.println("-----Menu-----");
            System.out.println("0. Salir");
            System.out.println("1. Division sin '/'");
@@ -66,9 +67,16 @@ public class Lab3P1_LeonardoLopez {
                 System.out.println("El resultado de la division es: " + cociente);
                 System.out.println("El residuo es: " + residuo);
                 
+                System.out.print("Desea realizar otra operacion? (s/n): ");
+                continuar = leer.next().charAt(0);
+                    if (continuar == 'n' || continuar == 'N') {
+                        opcion = 0;
+                    } else {
+                        System.out.print("Escoja: ");
+                        opcion = leer.nextInt();
 
                 }
-            
+               }
             case 2:{
                 int opcionJ1 = -1;
                 int opcionJ2 = -1;
@@ -103,19 +111,38 @@ public class Lab3P1_LeonardoLopez {
                     System.out.println("Jugador 2 gana.");
                 }
 
-
+                System.out.print("Desea realizar otra operacion? (s/n): ");
+                continuar = leer.next().charAt(0);
+                    if (continuar == 'n' || continuar == 'N') {
+                    opcion = 0;
+                    } else {
+                        System.out.print("Escoja: ");
+                        opcion = leer.nextInt();
             }     
-                   
+            }       
             case 3:{
-                
-                            
-                     
+               System.out.print("Ingrese un número entero mayor o igual a 6: ");
+        int base = leer.nextInt();
+        
+        if (base >= 6) {
+            int altura = base - 1;
+            for (int i = 0; i < altura; i++) {
+                for (int j = 0; j < base - i; j++) {
+                    if (j == i) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println();
             }
-           
-            
-       }
+        } else {
+            System.out.println("El número debe ser mayor o igual a 6.");
+            }    
+            }
        
-    }
+        }
     System.out.println("Saliendo del menu principal");
     }
+}
 }
